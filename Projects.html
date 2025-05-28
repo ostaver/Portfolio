@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filip Mladenovic | 3D Art Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #a073ff;
+      --primary-dark: #393957;
+      --dark-bg: #1a1625;
+      --dark-card: #2a2a3d;
+      --dark-text: #e0e0e0;
+      --dark-text-secondary: #bbb;
+      --accent: #b572f3;
+      --accent-light: #d9b2ff;
+      --dark-grid: #16131d;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --section-spacing: 4rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin: var(--section-spacing) 0 1.5rem;
+      color: var(--dark-text);
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent-light);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #231e2e 0%, #1a1625 100%);
+      margin-bottom: var(--section-spacing);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(165, 114, 243, 0.1) 0%, transparent 50%);
+      z-index: 0;
+    }
+
+    header .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: var(--dark-text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .tagline {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      background: rgba(42, 42, 61, 0.7);
+      backdrop-filter: blur(5px);
+      border: 1px solid var(--primary-dark);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--dark-text);
+      font-size: 1.5rem;
+      z-index: 100;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-button:hover {
+      color: var(--primary);
+      transform: translateX(-3px);
+      background: rgba(42, 42, 61, 0.9);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .section-tag {
+      font-family: 'Fira Code', monospace;
+      color: var(--primary);
+      opacity: 0.7;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(160, 115, 255, 0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(160, 115, 255, 0.2);
+    }
+
+    .project-date {
+      color: var(--dark-text-secondary);
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(57, 57, 87, 0.3);
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: var(--section-spacing);
+    }
+
+    .project-card {
+      background-color: var(--dark-card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: var(--transition);
+      position: relative;
+      border: 1px solid rgba(160, 115, 255, 0.1);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(160, 115, 255, 0.05) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      border-color: rgba(160, 115, 255, 0.3);
+    }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      padding-top: 100%; 
+      overflow: hidden;
+    }
+
+    .project-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .project-card:hover .project-image {
+      transform: scale(1.05);
+    }
+
+    .project-info {
+      padding: 1.8rem;
+    }
+
+    .project-info p {
+      color: var(--dark-text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .project-specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--dark-text-secondary);
+    }
+
+    .spec-item i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      margin-top: var(--section-spacing);
+      background: linear-gradient(180deg, transparent 0%, #16131d 100%);
+      color: var(--dark-text-secondary);
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary-dark), transparent);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      color: var(--dark-text);
+      font-size: 1.3rem;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* Responsive*/
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --section-spacing: 3rem;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      header {
+        padding: 3rem 0;
+      }
+      
+      .back-button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        top: 20px;
+        left: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --section-spacing: 2.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.6rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .project-info {
+        padding: 1.5rem;
+      }
+      
+      .back-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="../index.html" class="back-button animate-fade"><i class="fas fa-arrow-left"></i></a>
+    
+    <header class="animate-fade">
+      <div class="container">
+        <h1>Filip Mladenovic</h1>
+        <p class="subtitle">3D Art Portfolio</p>
+        <p class="tagline">The intersection of digital art and abstract expression</p>
+      </div>
+    </header>
+
+    <section id="projects" class="container">
+      <div class="section-header animate-fade delay-1">
+        <h2>3D Projects</h2>
+        <span class="section-tag">#Blender #Cycles #Eevee</span>
+      </div>
+
+      <!-- June-August 2024 -->
+      <div class="project-date animate-fade delay-2">June - August 2024</div>
+      <div class="projects-grid">
+        <!-- Project David Gray -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2024-June-August/King David Gray.png" alt="King David Gray Render" class="project-image" onclick="window.open('../Images/2024-June-August/King David Gray.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>King David Gray</h3>
+            <p>A classical interpretation with modern rendering techniques, showcasing intricate surface details.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 6.47MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 03:47</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project David -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2024-June-August/King David.png" alt="King David Render" class="project-image" onclick="window.open('../Images/2024-June-August/King David.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>King David</h3>
+            <p>A classical interpretation with modern rendering techniques, showcasing intricate surface details.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 9.48MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 03:14</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Aurora -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2024-June-August/Aurora.jpg" alt="Aurora Render" class="project-image" onclick="window.open('../Images/2024-June-August/Aurora.jpg', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Aurora</h3>
+            <p>An abstract celestial landscape featuring vibrant colors and ethereal lighting effects.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 3840x1920</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 1.28MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 57:23</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> JPG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project David Workshop -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2024-June-August/Workshop David.png" alt="David Workshop Render" class="project-image" onclick="window.open('../Images/2024-June-August/Workshop David.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>David Workshop</h3>
+            <p>Work-in-progress viewport capture showing modeling techniques and wireframe structure.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 559x876</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 214KB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Workshop</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 00:01</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project David Side -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2024-June-August/Side David.jpg" alt="King David Side Render" class="project-image" onclick="window.open('../Images/2024-June-August/Side David.jpg', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>King David Side</h3>
+            <p>Profile view highlighting the sculpture's proportions and anatomical accuracy.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1500x2000</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 155KB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 01:55</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> JPG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project David Side Blue -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2024-June-August/Side David Blue.png" alt="King David Side Blue Render" class="project-image" onclick="window.open('../Images/2024-June-August/Side David Blue.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>King David Side Blue</h3>
+            <p>Cool-toned variant with dramatic rim lighting that emphasizes silhouette and form.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 5.94MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 10:32</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- January-May 2024 -->
+      <div class="project-date animate-fade delay-1">January - May 2024</div>
+      <div class="projects-grid">
+        <!-- Project Oblivion -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2024-January-May/oblivion.jpg" alt="Oblivion Render" class="project-image" onclick="window.open('../Images/2024-January-May/oblivion.jpg', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Oblivion</h3>
+            <p>Cosmic gas cloud simulation with vibrant color gradients and volumetric lighting effects.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 3840x2160</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 1.37MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 51:32</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> JPG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Heartz -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2024-January-May/Heartz.png" alt="Heartz Render" class="project-image" onclick="window.open('../Images/2024-January-May/Heartz.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Heartz</h3>
+            <p>Organic abstract form exploring biological structures with subsurface scattering effects.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 33:14</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Pandemonium -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2024-January-May/Pandemonium.png" alt="Pandemonium Render" class="project-image" onclick="window.open('../Images/2024-January-May/Pandemonium.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Pandemonium</h3>
+            <p>Chaotic abstract composition with intricate geometry and reflective surfaces.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 10:12</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- October-December 2023 -->
+      <div class="project-date animate-fade delay-2">October - December 2023</div>
+      <div class="projects-grid">
+        <!-- Project Tidal -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2023-October-December/Tidal Gravity.jpg" alt="Tidal Gravity Render" class="project-image" onclick="window.open('../Images/2023-October-December/Tidal Gravity.jpg', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Tidal Gravity</h3>
+            <p>Fluid simulation capturing the dynamic motion of liquid in a gravitational field.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 226KB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 14:34</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> JPG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Bubblegum -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2023-October-December/Planet BubbleGum.jpg" alt="Planet Bubblegum Render" class="project-image" onclick="window.open('../Images/2023-October-December/Planet BubbleGum.jpg', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Planet Bubblegum</h3>
+            <p>Surreal planetary landscape with candy-colored terrain and atmospheric effects.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1080x1920</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 422KB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 09:11</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> JPG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Floating Islands -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2023-October-December/Floating Islands.png" alt="Floating Islands Render" class="project-image" onclick="window.open('../Images/2023-October-December/Floating Islands.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Floating Islands</h3>
+            <p>Fantasy landscape featuring suspended landmasses with realistic terrain details.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 3.64MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 4:54</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Re2Blue -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2023-October-December/Re2Blue.png" alt="Re2 Blue Render" class="project-image" onclick="window.open('../Images/2023-October-December/Re2Blue.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Re2 Blue</h3>
+            <p>Geometric abstract composition with cool color palette and reflective materials.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 11.8MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 9:02</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Re2Gray -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2023-October-December/Re2Gray.png" alt="Re2 Gray Render" class="project-image" onclick="window.open('../Images/2023-October-December/Re2Gray.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Re2 Gray</h3>
+            <p>Monochrome variation focusing on form, lighting, and material properties.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 8:54</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Re2Red -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2023-October-December/Re2Red.png" alt="Re2 Red Render" class="project-image" onclick="window.open('../Images/2023-October-December/Re2Red.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Re2 Red</h3>
+            <p>Warm-toned abstract with dramatic lighting that creates strong contrast.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 3.80MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 9:12</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- March-May 2023 -->
+      <div class="project-date animate-fade delay-2">March - May 2023</div>
+      <div class="projects-grid">
+        <!-- Project PANDA -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2023-March-May/PANDA.png" alt="Panda Render" class="project-image" onclick="window.open('../Images/2023-March-May/PANDA.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>PANDA</h3>
+            <p>Fluid simulation capturing the dynamic motion of liquid in a gravitational field.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1080x1920</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 21.1MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 4:34</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Mercury A -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2023-March-May/MercuryA.png" alt="Mercury A Render" class="project-image" onclick="window.open('../Images/2023-March-May/MercuryA.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Mercury A</h3>
+            <p>Surreal planetary landscape with candy-colored terrain and atmospheric effects.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 3840x2160</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 16.0MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 12:36</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Mercury Z -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2023-March-May/MercuryZ.jpg" alt="Mercury Z Render" class="project-image" onclick="window.open('../Images/2023-March-May/MercuryZ.jpg', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Mercury Z</h3>
+            <p>Fantasy landscape featuring suspended landmasses with realistic terrain details.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 3840 x 2160</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 1.51MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 9:12</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> JPG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Celestial Mount -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2023-March-May/CelestialMountains.png" alt="Celestial Mountains Render" class="project-image" onclick="window.open('../Images/2023-March-May/CelestialMountains.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Celestial Mountains</h3>
+            <p>Geometric abstract composition with cool color palette and reflective materials.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 3:13</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Non Euclidean -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2023-March-May/NonEuclidean.png" alt="Non Euclidean Render" class="project-image" onclick="window.open('../Images/2023-March-May/NonEuclidean.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Non Euclidean</h3>
+            <p>Monochrome variation focusing on form, lighting, and material properties.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 8:02</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Fractal -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2023-March-May/fractalCube.png" alt="Fractal Cube render" class="project-image" onclick="window.open('../Images/2023-March-May/fractalCube.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Fractal Cube</h3>
+            <p>Warm-toned abstract with dramatic lighting that creates strong contrast.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1000x1000</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 1.59MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 34:56</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- June-August 2023 -->
+      <div class="project-date animate-fade delay-2">June - August 2023</div>
+      <div class="projects-grid">
+        <!-- Project Oppenheimer -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2023-June-August/Oppenheimer.png" alt="Oppenheimer Render" class="project-image" onclick="window.open('../Images/2023-June-August/Oppenheimer.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Oppenheimer</h3>
+            <p>Fluid simulation capturing the dynamic motion of liquid in a gravitational field.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1500x1500</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 5.12MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 14:34</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Heimerdinger -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2023-June-August/Heimerdinger.png" alt="Heimerdinger Render" class="project-image" onclick="window.open('../Images/2023-June-August/Heimerdinger.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Heimerdinger</h3>
+            <p>Surreal planetary landscape with candy-colored terrain and atmospheric effects.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1500x1500</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 3.90MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 20:12</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Ataraxia -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2023-June-August/Ataraxia.png" alt="Ataraxia Render" class="project-image" onclick="window.open('../Images/2023-June-August/Ataraxia.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Ataraxia</h3>
+            <p>Fantasy landscape featuring suspended landmasses with realistic terrain details.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 11:14</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Symphony -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2023-June-August/Symphony.png" alt="Symphony Render" class="project-image" onclick="window.open('../Images/2023-June-August/Symphony.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Symphony</h3>
+            <p>Geometric abstract composition with cool color palette and reflective materials.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 2.95MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 2:33</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Symphony White -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2023-June-August/SymphonyWhite.png" alt="Symphony white Render" class="project-image" onclick="window.open('../Images/2023-June-August/SymphonyWhite.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Symphony White</h3>
+            <p>Monochrome variation focusing on form, lighting, and material properties.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 2.44MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 2:11</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Symphony pink -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2023-June-August/SymphonyPink.png" alt="Symphony pink render" class="project-image" onclick="window.open('../Images/2023-June-August/SymphonyPink.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Symphony Pink</h3>
+            <p>Warm-toned abstract with dramatic lighting that creates strong contrast.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 5.94MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 2:56</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- January-February 2023 -->
+      <div class="project-date animate-fade delay-2">January - February 2023</div>
+      <div class="projects-grid">
+        <!-- Project Madness -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2023-January-February/Madness.png" alt="Madness Render" class="project-image" onclick="window.open('../Images/2023-January-February/Madness.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Madness</h3>
+            <p>Fluid simulation capturing the dynamic motion of liquid in a gravitational field.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 3000x3000</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 5.48MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 7:55</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Earth Nebula -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2023-January-February/Earth Nebula.png" alt="Earth Nebula Render" class="project-image" onclick="window.open('../Images/2023-January-February/Earth Nebula.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Earth Nebula</h3>
+            <p>Surreal planetary landscape with candy-colored terrain and atmospheric effects.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 5:43</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Retro OSTAVER -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2023-January-February/RETRO_OSTAVER.png" alt="Retro OSTAVER Render" class="project-image" style = "object-fit: fill;" onclick="window.open('../Images/2023-January-February/RETRO_OSTAVER.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Retro OSTAVER</h3>
+            <p>Fantasy landscape featuring suspended landmasses with realistic terrain details.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 4.14MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 0:42</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- October - December 2023 -->
+      <div class="project-date animate-fade delay-2">October - December 2022</div>
+      <div class="projects-grid">
+        <!-- Project Marble -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2022-October-December/Marble.png" alt="Marble Render" class="project-image" onclick="window.open('../Images/2022-October-December/Marble.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Marble</h3>
+            <p>Fluid simulation capturing the dynamic motion of liquid in a gravitational field.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 1:34</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Lollipop -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2022-October-December/Lollipop.png" alt="Lollipop Render" class="project-image" onclick="window.open('../Images/2022-October-December/Lollipop.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Lollipop</h3>
+            <p>Surreal planetary landscape with candy-colored terrain and atmospheric effects.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Cycles</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 4:12</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Marble Nebula -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2022-October-December/MarbleNebula.png" alt="Marble Nebula Render" class="project-image" onclick="window.open('../Images/2022-October-December/MarbleNebula.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Marble Nebula</h3>
+            <p>Fantasy landscape featuring suspended landmasses with realistic terrain details.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 2:18</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Odyssey -->
+        <div class="project-card animate-fade delay-3">
+          <div class="image-container">
+            <img src="../Images/2022-October-December/Odyssey.png" alt="Odyssey Render" class="project-image" onclick="window.open('../Images/2022-October-December/Odyssey.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Odyssey</h3>
+            <p>Geometric abstract composition with cool color palette and reflective materials.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 15.8MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 0:33</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project Odyssey Blue -->
+        <div class="project-card animate-fade delay-1">
+          <div class="image-container">
+            <img src="../Images/2022-October-December/OdysseyBlue.png" alt="Odyssey Blue Render" class="project-image" onclick="window.open('../Images/2022-October-December/OdysseyBlue.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>Odyssey Blue</h3>
+            <p>Monochrome variation focusing on form, lighting, and material properties.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 2.14MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 0:31</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project UN!T -->
+        <div class="project-card animate-fade delay-2">
+          <div class="image-container">
+            <img src="../Images/2022-October-December/UN!T.png" alt="UN!T render" class="project-image" style = "object-fit: fill;" onclick="window.open('../Images/2022-October-December/UN!T.png', '_blank')">
+          </div>
+          <div class="project-info">
+            <h3>UN!T</h3>
+            <p>Warm-toned abstract with dramatic lighting that creates strong contrast.</p>
+            <div class="project-specs">
+              <span class="spec-item"><i class="fas fa-expand"></i> 1920x1080</span>
+              <span class="spec-item"><i class="fas fa-database"></i> 7.92MB</span>
+              <span class="spec-item"><i class="fas fa-cogs"></i> Eevee</span>
+              <span class="spec-item"><i class="fas fa-clock"></i> 0:49</span>
+              <span class="spec-item"><i class="fas fa-file-image"></i> PNG</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="animate-fade delay-3">
+      <div class="container">
+        <p>&copy; 2025 Filip Mladenovic. All rights reserved.</p>
+        <div class="social-links">
+          <a href="https://github.com/ostaver" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://instagram.com/f_mladenovic1" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://soundcloud.com/fico10231" class="social-link" aria-label="Soundcloud"><i class="fab fa-soundcloud"></i></a>
+          <a href="https://youtube.com/@ostaver3360" class="social-link" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+
+</body>
+</html>
