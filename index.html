@@ -1,1 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filip Mladenovic | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href = "style.css">
+  <script src = "script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <div class="header-text">
+          <h1 class="animate">Filip Mladenovic</h1>
+          <div class="index-number animate delay-1">ID: 242036</div>
+          <p class="subtitle animate delay-2" style = "margin-bottom: 24px;">Software Engineer • Problem Solver • Space & Art Enthusiast • Music Composer</p>
+          
+          <div class="social-links animate delay-3">
+            <a href="https://github.com/ostaver" target = "_blank" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://youtube.com/@ostaver3360" target = "_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com/f_mladenovic1" target = "_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://soundcloud.com/fico10231" target = "_blank" class="social-link"><i class="fab fa-soundcloud"></i></a>
+            <a href="https://open.spotify.com/artist/0k3Dbqswi4TFGMsB77ydBD" target = "_blank" class="social-link"><i class="fab fa-spotify"></i></a>
+          </div>
+        </div>
+      </div>
+    </header>
 
+    <section id="about">
+      <div class="language-toggle animate delay-3" style = "display: flex; width: 100%; justify-content: right;">
+        <button class="toggle-btn active" onclick="toggleLanguage('en')">EN</button>
+        <span>/</span>
+        <button class="toggle-btn" onclick="toggleLanguage('mk')">MK</button>
+      </div>
+      
+      <div class="card animate delay-1">
+        <h2 class="section-title">About Me</h2>
+        <p class="bio-text">
+          Passionate software engineer / video game develeoper with background in electronic music composition & sound design.
+          Currently pursuing my degree while working on creative projects that display art, technology, space
+          and creativity. My background in both technical and artistic fields allows me to approach 
+          problems with unique perspectives and deliver elegant solutions. I also have experience in chess, 
+          video editing and 3D Modeling.
+        </p>
+      </div>
+    </section>
+
+    <section id="navigation">
+      <div class="nav-cards">
+        <div class="nav-card animate delay-1" onclick="scrollToTop()">
+          <i class="fas fa-user"></i>
+          <h3>About</h3>
+          <p>Learn more about me</p>
+        </div>
+        
+        <div class="nav-card animate delay-2" onclick="scrollToSection('education')">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Education</h3>
+          <p>My academic journey</p>
+        </div>
+        
+        <div class="nav-card animate delay-3" onclick="scrollToSection('skills')">
+          <i class="fas fa-code"></i>
+          <h3>Skills</h3>
+          <p>Abilities i have obtained</p>
+        </div>
+        
+        <div class="nav-card animate delay-4" onclick="scrollToSection('projects')">
+          <i class="fas fa-project-diagram"></i>
+          <h3>Projects</h3>
+          <p>My work portfolio</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title animate">Education</h2>
+      
+      <div class="card animate delay-1">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2024 - Present</div>
+            <h3 class="timeline-title">Bachelor of Science in Computer Science</h3>
+            <p class="timeline-subtitle">FINKI, Macedonia</p>
+            <p>
+              Specializing in cyber analytics with coursework in algorithms, data structures, 
+              machine learning, virtual machines and web development. Expected graduation 2027.
+            </p>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2020 - 2024</div>
+            <h3 class="timeline-title">High School</h3>
+            <p class="timeline-subtitle">SUGS Nikola Karev, Skopje</p>
+            <p>
+              Focused mostly on music composition and game development, not on the high school. Also participated in programming competitions, developed 
+              first software projects and gained experience in game development.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title animate">Skills & Expertise</h2>
+      
+      <div class="card animate delay-1">
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3 class="card-title">Programming Languages</h3>
+            <p style = "margin-bottom: 1rem;">Lua, Python, C#, C++, HTML/CSS, JavaScript</p>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="card-title">Software & Technologies</h3>
+            <p style = "margin-bottom: 1rem;">Visual Studio, FL Studio, Adobe After Effects, Blender, Unreal, Obsidian</p>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="card-title">Design & Creativity</h3>
+            <p style = "margin-bottom: 1rem;">UI/UX Design, Video Editing, Game Development, Music Composition, Sound Design, 3D Design</p>
+          </div>
+          
+          <div class="skill-category">
+            <h3 class="card-title">Languages</h3>
+            <p style = "margin-bottom: 1rem;">Macedonian (Native), English (Fluent),  Serbian (Fluent), German (Intermediate), Chinese (Basic), Russian (Basic)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title animate">Featured Projects</h2>
+      
+      <div class="projects-grid">
+        <div class="project-card animate delay-1">
+          <div class="project-image">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Blender Projects</h3>
+            <p class="project-description">
+              All of my Blender projects that showcase my 3D modeling skills progressively.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Blender</span>
+              <span class="project-tag">3D Modeling</span>
+              <span class="project-tag">Art</span>
+            </div>
+            <div class="project-links">
+              <a href="/Pages/Projects.html" class="project-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card animate delay-2">
+          <div class="project-image">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">MeXtOr</h3>
+            <p class="project-description">
+              My newest house track that will send your speakers flying.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">FL Studio</span>
+              <span class="project-tag">Music</span>
+              <span class="project-tag">Art</span>
+            </div>
+            <div class="project-links">
+              <a href="/Tracks/MIXMASTERMEXTOR(1).wav" class="project-link"><i class="fas fa-download"></i> Download</a>
+              <a href="https://soundcloud.com/fico10231/mextor" target = "_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card animate delay-3">
+          <div class="project-image">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Neon Shader</h3>
+            <p class="project-description">
+              GLSL language shader that creates a neon effect on 2D objects.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">GLSL</span>
+              <span class="project-tag">2D</span>
+              <span class="project-tag">Art</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/ostaver/GLSL-Neon-Shader" target = "_blank" class="project-link"><i class="fab fa-github"></i> Code</a>
+              <a href="https://www.shadertoy.com/view/tc2SRV" target = "_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id = "dearest">
+      <h2 class="dearest-title">My Dearest Project</h2>
+      <div class="video-container">
+        <iframe style = "margin-bottom: 10px;" width="660" height="371" src="https://www.youtube.com/embed/b9Bk1smQqKI" title="Space is Art — A Vision" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class = "opportunity"><p style="font-size: 1rem; text-align: center;"><i>In the midst of chaos, there is also Opportunity.</i></p></div>
+      <div class = "bg-video"></div>
+    </section>
+
+
+
+  
+  </div>
+  <footer class="animate delay-4">
+      <p>Designed and built with passion © 2025 All rights reserved.</p>
+      <p>Filip Mladenovic aka OSTAVER.</p>
+    </footer>
+</body>
+</html>
